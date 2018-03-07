@@ -9,11 +9,15 @@ class PostsController < ApplicationController
     end
     
     def new
-        @post = Post.new
+    if user_signed_in?
+        @post = current_user.posts.build
+    else
+        redirect_to '/users/sign_in'
+    end 
     end 
     
     def create
-        @post = Post.new(post_params)
+        @post = current_user.posts.build(post_params)
         if @post.save
             redirect_to @post
         else 

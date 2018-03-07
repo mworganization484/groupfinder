@@ -11,19 +11,26 @@
     <%= @post.body %>
 </p>
 
+<% if @post.user == current_user %>
 <%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-sm btn-outline-secondary' %>
 <%= link_to 'Delete', post_path(@post), 
                 method: :delete,
                 data: {confirm: 'Are you sure?'},
                 :class => 'btn btn-danger' %>
+<% end %>
+
 <hr>
 
 <h3>Comments</h3>
 <% @post.comments.each do |comment| %>
-    <div class="well">
-    <p><strong><%= comment.username %></strong>: <%= comment.body %>
-    </p>
-    </div>
+    <div class="card" style="margin-bottom: 2%">
+  <div class="card-header">
+    <h4><%= comment.username %></h4>
+  </div>
+  <div class="card-block">
+    <p class="card-text"><%= comment.body %></p>
+  </div>
+</div>
 <% end %>
         
 <h3> Add Comments </h3>

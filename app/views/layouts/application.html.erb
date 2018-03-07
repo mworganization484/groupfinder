@@ -7,23 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
 <!-- HEADER NAVBAR -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Fixed navbar</a>
+        <a class="navbar-brand" href="#">Project Finder</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
+              <a class="nav-link" href="https://groupfinder-mileswinston23.c9users.io">Home<span class="sr-only">(current)</span></a>
             </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0" style="margin-right: 20px">
@@ -31,33 +24,8 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
           <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 95px">
-          Getting Started</a>
-
-    <!-- BEGIN DROPDOWN-->
-    <div class="dropdown-menu">
-        <form class="px-4 py-3">
-        <div class="form-group">
-            <label for="exampleDropdownFormEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-        </div>
-        <div class="form-group">
-            <label for="exampleDropdownFormPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="dropdownCheck">
-            <label class="form-check-label" for="dropdownCheck">
-            Remember me
-            </label>
-        </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-        </form>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">New around here? Sign up</a>
-        <a class="dropdown-item" href="#">Forgot password?</a>
-    </div>
-    <!--END DROPDOWN-->
+          <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_up" style="margin-right: 5px">Sign Up</a>
+          
     </div>
         </div>
       </nav>
@@ -70,10 +38,9 @@
   
 <!-- BEGINNING SIDEBAR -->
 <div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
+  <a href="https://groupfinder-mileswinston23.c9users.io/posts/new">Create Post</a>
+  <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_in" style="padding-bottom: 0px">Login</a>
+  <a style="padding-top: 0px"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
 </div>
 <!-- ENDING SIDEBAR-->
       
