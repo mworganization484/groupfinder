@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- HEADER NAVBAR -->
+<!--HEADER NAVBAR-->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">Project Finder</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,14 +19,20 @@
               <a class="nav-link" href="https://groupfinder-mileswinston23.c9users.io">Home<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <form class="form-inline mt-2 mt-md-0" style="margin-right: 20px">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          
+          <!-- Begin Search Function-->
+          <%= form_tag posts_path, :method => 'get', :class => 'form-inline mt-2 mt-md-0', style: "margin-right: 20px" do %>
+            <%= text_field_tag :search, params[:search], class: 'form-control mr-sm-2', placeholder: "Search" %>
+            <%= submit_tag "Search", class: 'btn btn-outline-success my-2 my-sm-0' %>
+          <% end %>
+          <!-- End Search Function-->
+          
+          <!-- Begin Sign Up Link-->
           <div class="dropdown">
           <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_up" style="margin-right: 5px">Sign Up</a>
+          <!-- End Sign Up Link-->
           
-    </div>
+          </div>
         </div>
       </nav>
   </div>
@@ -36,13 +42,13 @@
 
                       
   
-<!-- BEGINNING SIDEBAR -->
+<!--BEGINNING SIDEBAR-->
 <div class="sidenav">
   <a href="https://groupfinder-mileswinston23.c9users.io/posts/new">Create Post</a>
   <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_in" style="padding-bottom: 0px">Login</a>
   <a style="padding-top: 0px"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
 </div>
-<!-- ENDING SIDEBAR-->
+<!--ENDING SIDEBAR-->
       
 <%= yield %>
 

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
     
     def index
-        @post = Post.all.order('created_at DESC')
+        @post = Post.where(["title LIKE ?","%#{params[:search]}%"])
     end 
     
     def show
@@ -49,8 +49,5 @@ class PostsController < ApplicationController
         def post_params
             params.require(:post).permit(:title, :body)
         end 
-        
-    
-            
     
 end
