@@ -1,38 +1,42 @@
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
 <div class="container" style="margin-top: 6%">
-<h1 class="title">
-    <%= @post.title %>
-    </h1> 
+<h1 class="title"><%= @post.title %></h1> 
     
-<p class="date">
-    Submitted <%= time_ago_in_words(@post.created_at) %> Ago
-    </p>
-    
-<p class="body">
-    <%= @post.body %>
-</p>
+<hr>      
+<p class="date"> Submitted <%= time_ago_in_words(@post.created_at) %> Ago by user <%= @post.user_id %> </p>
+<p class="body"><%= @post.body %></p>
 
 <% if @post.user == current_user %>
 <%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-sm btn-outline-secondary' %>
 <%= link_to 'Delete', post_path(@post), 
                 method: :delete,
                 data: {confirm: 'Are you sure?'},
-                :class => 'btn btn-danger' %>
+                :class => 'btn btn-sm btn-outline-secondary' %>
 <% end %>
 
 <hr>
 
-<h3>Comments</h3>
+<h3 style="padding-bottom: 20px;">Comments</h3>
 <% @post.comments.each do |comment| %>
     <div class="card" style="margin-bottom: 2%">
   <div class="card-header">
-    <h4><%= comment.username %></h4>
-  </div>
-  <div class="card-block">
+    <h4><%= comment.username %><span class="text-muted"> commented: <%= time_ago_in_words(comment.created_at) %> ago</span></h4>
     <p class="card-text"><%= comment.body %></p>
+    <a href="#" class="card-link">Reply<span>
+    <a href="#" class="card-link">View Profile</a>
+    <a><%= link_to 'Delete',  post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "card-link;",:style => "margin-left: 20px;" %></a>
+    <a><%= link_to 'Edit', edit_post_comment_path(comment.post, comment), :class => "card-link;",:style => "margin-left: 20px;" %></a>
+    </span>
+    </a>
   </div>
 </div>
 <% end %>
-        
+
+<hr>
+
 <h3> Add Comments </h3>
 <%= form_for([@post, @post.comments.build]) do |f| %>
 <p>

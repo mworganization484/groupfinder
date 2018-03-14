@@ -28,7 +28,8 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <%= link_to "View", post_path(post), :class => 'btn btn-sm btn-outline-secondary' %> 
-                </div><small class="text-muted">9 mins</small>
+                </div>
+                <small class="text-muted">Created <%= time_ago_in_words(post.created_at) %></small>
               </div>
             </div>
           </div>
