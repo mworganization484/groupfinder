@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
     def create
-        @post = Post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
     if user_signed_in?
-        @comments = @post.comments.create(comment_params)
-        redirect_to post_path(@post)
-    else 
+    @comment = @post.comments.create(params[:comment].permit(:username, :body))
+    @comment.user_id=current_user.id if current_user
+    @comment.save
+    redirect_to post_path(@post)
+    else
         redirect_to '/users/sign_in'
     end
     end 
