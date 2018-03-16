@@ -16,7 +16,33 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="https://groupfinder-mileswinston23.c9users.io">Home<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="https://groupfinder-mileswinston23.c9users.io">Home</a>
+            </li>
+            <li class="nav-item active">
+              <!-- If the user is signed in, welcome them by username -->
+              <% if user_signed_in? %>
+              <a class="nav-link" style="color: #06ff3f;"><strong>Online</strong> <%= current_user.username %></a>
+              <% end %>
+            </li>
+            <li class="nav-item active">
+            <div class="dropdown show">
+              <a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+              </a>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <% if !user_signed_in? %>
+                <a class="dropdown-item" href="https://groupfinder-mileswinston23.c9users.io/users/sign_in" style="padding-bottom: 0px">Login</a>
+                <% end %>
+                <% if user_signed_in? %>
+                <a class="dropdown-item" href="https://groupfinder-mileswinston23.c9users.io/users/<%= current_user.id %>">My Profile</a>
+                <a class="dropdown-item" href="https://groupfinder-mileswinston23.c9users.io/users/edit">Settings</a>
+                <a class="dropdown-item" href="https://groupfinder-mileswinston23.c9users.io/posts/new">Create Post</a>
+                <hr>
+                <a><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "dropdown-item" %></a>
+                <% end %>
+              </div>
+            </div>
             </li>
           </ul>
           
@@ -29,7 +55,7 @@
           
           <!-- Begin Sign Up Link-->
           <div class="dropdown">
-          <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_up" style="margin-right: 5px">Sign Up</a>
+          <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_up" style="margin-right: 5px;">Sign Up</a>
           <!-- End Sign Up Link-->
           
           </div>
@@ -41,13 +67,18 @@
 
 
                       
-  
+<!--RETIRED DO NOT UNCOMMENT OR EDIT-->
 <!--BEGINNING SIDEBAR-->
-<div class="sidenav">
-  <a href="https://groupfinder-mileswinston23.c9users.io/posts/new">Create Post</a>
-  <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_in" style="padding-bottom: 0px">Login</a>
-  <a style="padding-top: 0px"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
-</div>
+<!--<div class="sidenav">-->
+  <!-- If the user is signed in, give them an option to view their profile -->
+<!--  <% if user_signed_in? %>-->
+<!--  <a href="https://groupfinder-mileswinston23.c9users.io/users/<%= current_user.id %>">My Profile</a>-->
+<!--  <a href="https://groupfinder-mileswinston23.c9users.io/users/edit">Settings</a>-->
+<!--  <% end %>-->
+<!--  <a href="https://groupfinder-mileswinston23.c9users.io/posts/new">Create Post</a>-->
+<!--  <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_in" style="padding-bottom: 0px">Login</a>-->
+<!--  <a style="padding-top: 0px"><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "padding-top" %></a>-->
+<!--</div>-->
 <!--ENDING SIDEBAR-->
       
 <%= yield %>
