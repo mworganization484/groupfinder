@@ -15,7 +15,14 @@
  */
 @import "bootstrap";
 
+body {
+  background-image: image-url('32428912.jpg'); 
+  background-size: cover;
+}
 
+.bg-light {
+    background-color: #f8f9fa00 !important;
+}
 
 /** Custom translucent site header*/
 

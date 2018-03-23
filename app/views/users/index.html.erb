@@ -1,0 +1,7 @@
+<div class="container" style="margin-top: 10%">
+<% @users.each do |user| %>
+<br>
+<%= link_to user.username, user %>
+<%= user.email %>
+<% end %>
+</div>

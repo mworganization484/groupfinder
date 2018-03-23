@@ -1,5 +1,5 @@
 
-<div class="container" style="margin-top: 6%">
+<div class="container" style="margin-top: 6%; border-radius: 25px; border: 2px solid #1b1e2182; margin-top: 6%;background: white; padding-bottom: 5px; padding-top: 5px;">
 <h1 class="title"><%= @post.title %></h1> 
     
 <hr>
@@ -7,9 +7,12 @@
 <p class="date"> Submitted <%= time_ago_in_words(@post.created_at) %> Ago by
 <!-- Checks if a user even exist for this post -->
 <% if defined? (@post.user.username) %> 
-user <%= @post.user.username %></p>
+user: 
+<a href="https://groupfinder-mileswinston23.c9users.io/users/<%= @post.user.id %>"><%= @post.user.username %></a>
+    </p>
 <% end %>
-<p class="body"><%= @post.body %></p>
+<p class="body">
+<%= @post.body %></p>
 
 <% if @post.user == current_user %>
 <%= link_to 'Edit', edit_post_path(@post), :class => 'btn btn-sm btn-outline-secondary' %>
@@ -36,19 +39,20 @@ user <%= @post.user.username %></p>
 <% end %>
 
 <hr>
-
+<% if user_signed_in? %>
 <h3> Add Comments </h3>
 <%= form_for([@post, @post.comments.build]) do |f| %>
 <p>
-  <%= f.label :username %><br>
-  <%= f.text_field(:username, {:class => 'form-control'}) %>
+  <%= f.label :username, :value => 'Posting as: '  + current_user.username %><br>
+  <%= f.hidden_field :username, :value => current_user.username %>
   </p>
   <p>
    <%= f.label :body %><br>
-   <%= f.text_area(:body, {:class => 'form-control'}) %>
+   <%= f.text_area(:body, {:class => 'form-control', :required => true}) %>
   </p>
   <p>
      <%= f.submit({:class => 'btn btn-default'}) %>
   </p>
+<% end %>
 <% end %>
 </div>
