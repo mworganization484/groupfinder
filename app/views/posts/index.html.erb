@@ -10,6 +10,15 @@
 </head>
 
 <body>
+  <!-- Welcome Page -->
+  <% if !user_signed_in? %>
+  <div class="container" style="margin-top: 7%; background-color: white; color: red; border-style: solid; border-color: black;">
+    <div class="row">
+      <h1><i>"Welcome to Project Finder! Where all your projects come to life.</i></h1>
+    </div>
+  </div>
+  <% end %>
+  
   <!--CARDS SECTION -->
   <div class="album py-5 bg-light" style="margin-top: 2%">
     <div class="container">
@@ -32,7 +41,7 @@
         <% end %>
       </div>
       <!-- BEGIN PAGINATION TOOL -->
-      <%= will_paginate @post, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %>
+          <%= will_paginate @post, previous_label: "Previous Page<<", next_label: ">>Next Page", inner_window: 1, outer_window: 0 %>
       <!-- END PAGIATION TOOL -->
     </div>
   </div>

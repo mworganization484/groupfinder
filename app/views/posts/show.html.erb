@@ -25,9 +25,14 @@ user:
 <% @post.comments.each do |comment| %>
     <div class="card" style="margin-bottom: 2%">
     <div class="card-header">
-    <h4><%= comment.username %><span class="text-muted"> commented: <%= time_ago_in_words(comment.created_at) %> ago</span></h4>
+    <h4><!-- Checks if a user even exist for this post -->
+        <% if defined? (@post.user.username) %> 
+        <a href="https://groupfinder-mileswinston23.c9users.io/users/<%= @post.user.id %>"><%= @post.user.username %></a>
+        <% end %>
+        <span class="text-muted"> commented <%= time_ago_in_words(comment.created_at) %> ago</span>
+    </h4>
     <p class="card-text"><%= comment.body %></p>
-    <a href="https://groupfinder-mileswinston23.c9users.io/users/<%= comment.user_id %>" class="card-link">View Profile</a>
+    <!--<a href="https://groupfinder-mileswinston23.c9users.io/users/<%= comment.user_id %>" class="card-link">View Profile</a> -->
     <!-- Check to see if the current user is signed in. If so, delete and edit will be shown as options -->
     <% if user_signed_in? && comment.user_id == current_user.id %>
     <a><%= link_to 'Delete',  post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "card-link;",:style => "margin-left: 20px;" %></a>

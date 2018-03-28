@@ -33,7 +33,7 @@
             
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <% if !user_signed_in? %>
-                <a class="dropdown-item" href="https://groupfinder-mileswinston23.c9users.io/users/sign_in" style="padding-bottom: 0px">Login</a>
+                <a class="dropdown-item" href="https://groupfinder-mileswinston23.c9users.io/users/sign_in">Login</a>
                 <% end %>
                 <% if user_signed_in? %>
                 <a class="dropdown-item" href="https://groupfinder-mileswinston23.c9users.io/users/<%= current_user.id %>">My Profile</a>
@@ -54,11 +54,12 @@
           <% end %>
           <!-- End Search Function-->
           
-          <!-- Begin Sign Up Link-->
+          <!-- Begin Sign Up Link -Display only if user is !signed_in -->
           <div class="dropdown">
-          <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_up" style="margin-right: 5px; color:white;">Sign Up</a>
+            <% if !user_signed_in? %>
+              <a href="https://groupfinder-mileswinston23.c9users.io/users/sign_up" style="margin-right: 5px; color:white;">Sign Up</a>
+            <% end %>
           <!-- End Sign Up Link-->
-          
           </div>
         </div>
       </nav>
@@ -66,8 +67,14 @@
 </nav>
 <!-- ENDING OF HEADER NAVBAR-->
 
+
+
 <%= yield %>
 
 </body>
-
+<!-- BEGIN FOOTER -->
+<footer class="footer" style="text-align: center; color: white; background-color: #343a40;">
+  <large>© Copyright 2018</large>
+</footer>
+<!-- END FOOTER -->
 </html>
