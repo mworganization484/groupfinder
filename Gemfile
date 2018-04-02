@@ -26,6 +26,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'will_paginate', '~> 3.1.1'
+gem 'omniauth-facebook'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
