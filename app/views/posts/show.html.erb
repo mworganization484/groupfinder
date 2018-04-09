@@ -25,9 +25,9 @@ user:
 <% @post.comments.each do |comment| %>
     <div class="card" style="margin-bottom: 2%">
     <div class="card-header">
-    <h4><!-- Checks if a user even exist for this post -->
+    <h4><!-- Checks if a user exist for this post -->
         <% if defined? (@post.user.username) %> 
-        <a href="https://groupfinder-mileswinston23.c9users.io/users/<%= @post.user.id %>"><%= @post.user.username %></a>
+        <a href="https://groupfinder-mileswinston23.c9users.io/users/<%= comment.user_id %>"><%= comment.username %></a>
         <% end %>
         <span class="text-muted"> commented <%= time_ago_in_words(comment.created_at) %> ago</span>
     </h4>

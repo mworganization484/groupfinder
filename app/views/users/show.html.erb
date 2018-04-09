@@ -1,6 +1,10 @@
 <div class="container" style="float:right; margin-top: 5%; text-align: left;">
 <div class="card" style="width: 45rem;">
-  <%= image_tag "classic-rare-brotha.jpg", :class => "img-fluid" %>
+  <% if @user.image.file? %>
+  <%= image_tag @user.image.url, :class => "img-fluid" %>
+  <% else %>
+  <%= image_tag 'missing.png', :size => "718x403" %>
+  <% end %>
   <div class="card-body">
     <h5 class="card-title"><strong><%= @user.username %></strong></h5>
     <p class="card-text"><%= @user.about %></p>

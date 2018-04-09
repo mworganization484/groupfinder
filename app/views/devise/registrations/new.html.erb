@@ -6,32 +6,32 @@
   
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :first_name, autofocus: true %>
   </div>
   
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :last_name, autofocus: true %>
   </div>
   
   <div class="field">
     <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :username, autofocus: true %>
   </div>
   
   <div class="field">
     <%= f.label :about %><br />
-    <%= f.text_area :about, autofocus: true, autocomplete: "email" %>
+    <%= f.text_area :about, autofocus: true %>
   </div>
   
   <div class="field">
     <%= f.label :birthday %><br />
-    <%= f.date_field :birthday, autofocus: true, autocomplete: "email" %>
+    <%= f.date_field :birthday, autofocus: true %>
   </div>
   
   <div class="field">
     <%= f.label :location %><br />
-    <%= f.text_field :location, autofocus: true, autocomplete: "email" %>
+    <%= f.text_field :location, autofocus: true %>
   </div>
 
   <div class="field">
@@ -45,6 +45,11 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image, autofocus: true %>
   </div>
 
   <div class="field">
