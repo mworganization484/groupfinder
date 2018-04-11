@@ -1,5 +1,5 @@
 
-<div class="container" style="margin-left: 10%; margin-top: 5%; margin-bottom: 20px; padding-bottom: 5px; border-radius: 25px; background: #ffffff; padding-top: 5px;">
+<div class="container" style="margin-left: 10%; margin-top: 5%; margin-bottom: 20px; padding-bottom: 5px; border-radius: 25px; background: #ffffff; background-color: lightblue; font-family: Lucida Console; padding-top: 5px;">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -7,7 +7,7 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
+  <p></p>
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>

@@ -16,7 +16,9 @@
 @import "bootstrap";
 
 body {
-  background-image: url("32428912.jpg");
+  /*background-image: url("32428912.jpg");*/
+  background-image: url("img1.jpg");
+  /*background-color: lightblue; */
   background-size: cover;
 }
 
@@ -101,3 +103,27 @@ a#dropdownMenuLink.btn.btn-secondary.dropdown-toggle {
     width: 400px;
 }
 
+/* Footer */
+.footer {
+  background: #061D25;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  height: 65px;
+  background-color: #999999;
+}
+.footer a {
+  color: #70726F;
+  font-size: 20px;
+  padding: 10px;
+  border-right: 1px solid #70726F;
+  transition: all .5s ease;
+}
+.footer a:first-child {
+  border-left: 1px solid #70726F;
+}
+.footer a:hover {
+  color: white;
+}

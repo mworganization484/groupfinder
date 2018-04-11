@@ -1,4 +1,4 @@
-<div class="container" style="margin-left: 10%; margin-top: 5%; margin-bottom: 20px; padding-bottom: 5px; border-radius: 25px; background: #ffffff; padding-top: 5px;">
+<div class="container" style="margin-left: 10%; margin-top: 5%; margin-bottom: 20px; padding-bottom: 5px; border-radius: 25px; background: #ffffff; background-color: lightblue; font-family:Lucida Console; padding-top: 5px;">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -8,37 +8,37 @@
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :about %><br />
     <%= f.text_area :about, autofocus: true %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :birthday %><br />
     <%= f.date_field :birthday, autofocus: true %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :location %><br />
     <%= f.text_field :location, autofocus: true %>
   </div>
-
+  <p></p>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
+  <p></p>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -46,17 +46,17 @@
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
-  
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image, autofocus: true %>
-  </div>
-
+  <p></p>
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  <p></p>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image, autofocus: true %>
+  </div>
+  <p></p>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

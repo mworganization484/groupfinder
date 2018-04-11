@@ -1,44 +1,44 @@
 <div class="container" style="margin-left: 10%; margin-top: 5%; margin-bottom: 20px; padding-bottom: 5px; border-radius: 25px; background: #ffffff; padding-top: 5px;">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><strong>Edit <%= resource_name.to_s.humanize %></strong></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
+    <i><%= f.label :first_name %></i><br />
     <%= f.text_field :first_name, autofocus: true %>
   </div>
-  
+  <p></p>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <i><%= f.label :last_name %></i><br />
     <%= f.text_field :last_name, autofocus: true %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true  %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :about %><br />
     <%= f.text_area :about, autofocus: true %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :birthday %><br />
     <%= f.date_field :birthday, autofocus: true  %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :location %><br />
     <%= f.text_field :location, autofocus: true  %>
   </div>
-
+  <p></p>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-  
+  <p></p>
   <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image, autofocus: true %>
@@ -47,7 +47,7 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-
+  <p></p>
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
@@ -56,12 +56,12 @@
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
-
+  <p></p>
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  <p></p>
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
@@ -71,10 +71,10 @@
     <%= f.submit "Update" %>
   </div>
 <% end %>
+<p></p>
+<h3><strong>Cancel my account</strong></h3>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><i>Unhappy?</i> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
 </div>
