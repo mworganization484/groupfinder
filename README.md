@@ -1,4 +1,4 @@
-MILES AND WINSTON! READ THIS!
+MILES AND WINSTON! READ THIS! </br>
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
     |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
@@ -7,16 +7,16 @@ MILES AND WINSTON! READ THIS!
     ----------------------------------------------------------------- 
 
 
-Welcome to your Rails project on Cloud9 IDE!
+# Welcome to your Rails project on Cloud9 IDE!
 
 To get started, just do the following:
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
+1. Run the project with the "Run Project" button in the menu bar on top of the IDE. </br>
         OR
-    Type 'rails server -b $IP -p $PORT' in the terminal.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/).
+    Type 'rails server -b $IP -p $PORT' in the terminal. </br>
+2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/). </br>
 
-Happy coding!
+Happy coding!  </br>
 The Cloud9 IDE team
 
 
