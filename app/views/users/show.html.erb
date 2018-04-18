@@ -1,3 +1,16 @@
+<div class="friends" style="background-color: white; width: 300px; height: 300px; float: left; margin-top: 5%; margin-left: 5%;">
+  <h3 style="text-align: center;">Friends List</h3>
+  <hr>
+  
+  <div class"groups" style="background-color: white; width: 300px; height: 300px; float: left; margin-top: 90%;">
+    <h3 style="text-align: center;">Groups</h3>
+    <hr>
+  </div>
+
+</div>
+
+</div>
+
 <div class="container" style="float:right; margin-top: 5%; text-align: left;">
 <div class="card" style="width: 45rem;">
   <% if @user.image.file? %>
@@ -10,7 +23,7 @@
     <p class="card-text"><%= @user.about %></p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Name: <%= @user.first_name %> <%= @user.last_name %></li>
+    <li class="list-group-item">Name: <% @user.first_name %> <%= @user.last_name %></li>
     <li class="list-group-item">Birthday: <%= @user.birthday %></li>
     <li class="list-group-item">Location: <%= @user.location %></li>
     <li class="list-group-item">Email: <%= mail_to @user.email %></li>

@@ -2,18 +2,12 @@ class User < ActiveRecord::Base
   
     def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"] || session["devise.linkedin_data"] && session["devise.linkedin_data"]["extra"]["raw_info"] || session["devise.github_data"] && session["devise.github_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
         user.birthday = data["user_birthday"] if user.birthday.blank?
         user.first_name = data["first_name"] if user.first_name.blank?
         user.last_name = data["last_name"] if user.last_name.blank?
         user.image = data["picture"] if user.last_name.blank?
-      end
-      if data = session["devise.linkedin_data"] && session["devise.linkedin_data"]["extra"]["raw_info"]
-        user.email = data["r_emailaddress"] if user.email.blank?
-      end
-      if data = session["devise.github_data"] && session["devise.github_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
       end
     end
     end

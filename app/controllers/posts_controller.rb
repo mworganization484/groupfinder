@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-    
     def index
         @post = Post.where(["title LIKE ?","%#{params[:search]}%"]).paginate(page: params[:page], per_page: 9)
     end 
