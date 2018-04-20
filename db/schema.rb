@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409205730) do
+ActiveRecord::Schema.define(version: 20180420181757) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
@@ -43,13 +43,10 @@ ActiveRecord::Schema.define(version: 20180409205730) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "friendships", force: :cascade do |t|
-    t.integer  "friendable_id"
-    t.string   "friendable_type"
+    t.integer  "user_id"
     t.integer  "friend_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "blocker_id"
-    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -61,6 +58,13 @@ ActiveRecord::Schema.define(version: 20180409205730) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false

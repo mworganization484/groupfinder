@@ -1,7 +1,25 @@
 <div class="friends" style="background-color: white; width: 300px; height: 300px; float: left; margin-top: 5%; margin-left: 5%;">
   <h3 style="text-align: center;">Friends List</h3>
   <hr>
-  
+    <h2>Friends</h2>
+<ul>
+  <% for friendship in @user.friendships %>
+    <li>
+      <%=h friendship.friend.username %>
+      <!-- Allow only owner of user profile to remove their own friends -->
+        <% if @user == current_user %>
+      (<%= link_to "remove", friendship, :method => :delete %>)
+        <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Friended by Users</h2>
+<ul>
+  <% for user in @user.inverse_friends %>
+    <li><%=h user.username %></li>
+  <% end %>
+</ul>
   <div class"groups" style="background-color: white; width: 300px; height: 300px; float: left; margin-top: 90%;">
     <h3 style="text-align: center;">Groups</h3>
     <hr>
@@ -20,6 +38,7 @@
   <% end %>
   <div class="card-body">
     <h5 class="card-title"><strong><%= @user.username %></strong></h5>
+    <%= link_to "Add Friend", friendships_path(:friend_id => @user), :method => :post %>
     <p class="card-text"><%= @user.about %></p>
   </div>
   <ul class="list-group list-group-flush">
